@@ -3,10 +3,11 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const mongoClient = new MongoClient(process.env.MONGO_URI);
+const mongoClient = new MongoClient("mongodb://localhost:27017");
 let db;
+
 mongoClient.connect().then(() => {
-	db = mongoClient.db("test");
+	db = mongoClient.db("mywallet");
 });
 
 export { db }
